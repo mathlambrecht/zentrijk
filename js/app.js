@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h1>Test</h1>";
+  return "<div class=\"corner topleft\"></div>\n<div class=\"corner topright\"></div>\n<div class=\"corner bottomleft\"></div>\n<div class=\"corner bottomright\"></div>\n<div id=\"frame\"></div>\n\n<header>\n	<hgroup>\n		<h1><span class=\"invisible\">Zentrijk</span></h1>\n	</hgroup>\n</header>";
   });
 
 /* globals HomeView:true */
