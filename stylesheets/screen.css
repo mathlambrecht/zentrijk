@@ -79,62 +79,62 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-style: normal;
 }
 
-/* line 10, ../_scss/screen.scss */
+/* line 10, ../sass/screen.scss */
 html, body, #container {
   widows: 100%;
   height: 100%;
 }
 
-/* line 16, ../_scss/screen.scss */
+/* line 16, ../sass/screen.scss */
 body {
   color: white;
 }
 
-/* line 21, ../_scss/screen.scss */
-h1, h2, #btndiscover {
+/* line 21, ../sass/screen.scss */
+h1, h2, #btndiscover, #btnview, #btnnew {
   display: block;
 }
 
-/* line 26, ../_scss/screen.scss */
-h1, #btndiscover, hgroup, #centerparagraph {
+/* line 26, ../sass/screen.scss */
+h1, #btndiscover, hgroup, #centerparagraph, #btnview, #btnnew {
   margin: 0 auto;
 }
 
-/* line 31, ../_scss/screen.scss */
+/* line 31, ../sass/screen.scss */
 a {
   text-decoration: none;
   color: white;
 }
 
-/* line 37, ../_scss/screen.scss */
-h2, #btndiscover, #centerparagraph {
+/* line 37, ../sass/screen.scss */
+h2, #btndiscover, #centerparagraph, #btnview, #btnnew {
   text-align: center;
 }
 
-/* line 42, ../_scss/screen.scss */
-#btndiscover, h1, #church, #tower {
+/* line 42, ../sass/screen.scss */
+#btndiscover, h1, #church, #tower, #btnview, #btnnew {
   background-repeat: no-repeat;
 }
 
-/* line 47, ../_scss/screen.scss */
+/* line 47, ../sass/screen.scss */
 .invisible {
   display: none;
 }
 
-/* line 52, ../_scss/screen.scss */
+/* line 52, ../sass/screen.scss */
 body {
   font-size: 62.5%;
   font-family: 'condlight', "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #abddc4;
 }
 
-/* line 59, ../_scss/screen.scss */
+/* line 59, ../sass/screen.scss */
 #container {
   position: relative;
   min-height: 100%;
 }
 
-/* line 65, ../_scss/screen.scss */
+/* line 65, ../sass/screen.scss */
 .corner {
   width: 12px;
   height: 12px;
@@ -142,31 +142,31 @@ body {
   border: 3px solid white;
 }
 
-/* line 73, ../_scss/screen.scss */
+/* line 73, ../sass/screen.scss */
 .topleft {
   left: 10px;
   top: 10px;
 }
 
-/* line 79, ../_scss/screen.scss */
+/* line 79, ../sass/screen.scss */
 .topright {
   right: 10px;
   top: 10px;
 }
 
-/* line 85, ../_scss/screen.scss */
+/* line 85, ../sass/screen.scss */
 .bottomleft {
   bottom: 10px;
   left: 10px;
 }
 
-/* line 91, ../_scss/screen.scss */
+/* line 91, ../sass/screen.scss */
 .bottomright {
   right: 10px;
   bottom: 10px;
 }
 
-/* line 97, ../_scss/screen.scss */
+/* line 97, ../sass/screen.scss */
 #frame {
   top: 25px;
   left: 25px;
@@ -175,20 +175,20 @@ body {
   position: absolute;
   padding: 10px;
   border: 3px solid white;
-  z-index: -99;
+  z-index: -1;
 }
 
-/* line 109, ../_scss/screen.scss */
+/* line 109, ../sass/screen.scss */
 #church {
   bottom: 25px;
   left: 10%;
   position: absolute;
-  width: 204px;
-  height: 433px;
+  width: 214px;
+  height: 461px;
   background-image: url("../images/church.png");
 }
 
-/* line 119, ../_scss/screen.scss */
+/* line 119, ../sass/screen.scss */
 #tower {
   right: 10%;
   bottom: 25px;
@@ -198,7 +198,7 @@ body {
   background-image: url("../images/tower.png");
 }
 
-/* line 129, ../_scss/screen.scss */
+/* line 129, ../sass/screen.scss */
 #btngarden, #btnmap {
   font-family: "medium";
   position: absolute;
@@ -209,30 +209,35 @@ body {
   font-size: 1.8em;
 }
 
-/* line 140, ../_scss/screen.scss */
+/* line 140, ../sass/screen.scss */
+#home {
+  height: 100%;
+}
+
+/* line 145, ../sass/screen.scss */
 #headerhome {
   padding-top: 175px;
   margin-bottom: 75px;
 }
-/* line 145, ../_scss/screen.scss */
+/* line 150, ../sass/screen.scss */
 #headerhome hgroup {
   width: 80%;
 }
-/* line 149, ../_scss/screen.scss */
+/* line 154, ../sass/screen.scss */
 #headerhome hgroup h1 {
   width: 135px;
   height: 194px;
   background-image: url("../images/logo.png");
   margin-bottom: 25px;
 }
-/* line 157, ../_scss/screen.scss */
+/* line 162, ../sass/screen.scss */
 #headerhome hgroup h2 {
   font-size: 3em;
   line-height: 1.4em;
   letter-spacing: 0.05em;
 }
 
-/* line 166, ../_scss/screen.scss */
+/* line 171, ../sass/screen.scss */
 #centerparagraph {
   width: 80%;
   font-family: "condlight";
@@ -242,8 +247,8 @@ body {
   margin-bottom: 35px;
 }
 
-/* line 176, ../_scss/screen.scss */
-#btndiscover {
+/* line 181, ../sass/screen.scss */
+#btndiscover, #btnview, #btnnew {
   font-family: "medium";
   background-image: url("../images/btnframe.png");
   width: 269px;
@@ -254,45 +259,72 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* line 188, ../_scss/screen.scss */
+/* line 193, ../sass/screen.scss */
+#zentrijk {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 199, ../sass/screen.scss */
+#map {
+  width: 100%;
+  height: 100%;
+  padding-top: 2%;
+  background-color: #9fd0b8;
+}
+
+/* line 207, ../sass/screen.scss */
 #mapbox {
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  bottom: 28px;
-  right: 28px;
+  margin-left: 2%;
+  width: 96%;
+  height: 96%;
+}
+
+/* line 216, ../sass/screen.scss */
+#gridchoice a {
+  float: left;
+}
+
+/* line 222, ../sass/screen.scss */
+#btnview {
+  margin-right: 15px;
+}
+
+/* line 227, ../sass/screen.scss */
+.clear {
+  clear: both;
 }
 
 @media screen and (max-width: 850px) {
-  /* line 199, ../_scss/screen.scss */
+  /* line 234, ../sass/screen.scss */
   #church, #tower {
     display: none;
   }
 }
 @media screen and (max-height: 460px) {
-  /* line 207, ../_scss/screen.scss */
+  /* line 242, ../sass/screen.scss */
   #headerhome {
     padding-top: 50px;
     margin-bottom: 25px;
   }
-  /* line 212, ../_scss/screen.scss */
+  /* line 247, ../sass/screen.scss */
   #headerhome h1 {
     width: 68px !important;
     height: 97px !important;
     background-image: url("../images/logomobile.png") !important;
   }
-  /* line 219, ../_scss/screen.scss */
+  /* line 254, ../sass/screen.scss */
   #headerhome h2 {
     font-size: 1.5em !important;
     letter-spacing: 0em !important;
   }
 
-  /* line 226, ../_scss/screen.scss */
+  /* line 261, ../sass/screen.scss */
   #centerparagraph {
     font-size: 1.2em !important;
   }
 
-  /* line 231, ../_scss/screen.scss */
+  /* line 266, ../sass/screen.scss */
   #btndiscover {
     padding-top: 16px;
     font-size: 1.4em !important;
@@ -301,13 +333,13 @@ body {
     height: 45px !important;
   }
 
-  /* line 241, ../_scss/screen.scss */
+  /* line 276, ../sass/screen.scss */
   .corner {
     width: 7px;
     height: 7px;
   }
 
-  /* line 247, ../_scss/screen.scss */
+  /* line 282, ../sass/screen.scss */
   #frame {
     top: 15px;
     left: 15px;
@@ -315,37 +347,37 @@ body {
     bottom: 15px;
   }
 
-  /* line 255, ../_scss/screen.scss */
+  /* line 290, ../sass/screen.scss */
   .topleft {
     left: 5px;
     top: 5px;
   }
 
-  /* line 261, ../_scss/screen.scss */
+  /* line 296, ../sass/screen.scss */
   .topright {
     right: 5px;
     top: 5px;
   }
 
-  /* line 267, ../_scss/screen.scss */
+  /* line 302, ../sass/screen.scss */
   .bottomleft {
     bottom: 5px;
     left: 5px;
   }
 
-  /* line 273, ../_scss/screen.scss */
+  /* line 308, ../sass/screen.scss */
   .bottomright {
     right: 5px;
     bottom: 5px;
   }
 
-  /* line 279, ../_scss/screen.scss */
+  /* line 314, ../sass/screen.scss */
   #church, #tower {
     bottom: 15px !important;
   }
 }
 @media screen and (max-height: 760px) {
-  /* line 287, ../_scss/screen.scss */
+  /* line 322, ../sass/screen.scss */
   #btndiscover {
     padding-bottom: 30px;
   }

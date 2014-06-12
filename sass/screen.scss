@@ -1,0 +1,331 @@
+@import "compass/reset";
+@import "compass";
+
+@import "fonts";
+
+$white: #FFFFFF;
+$borderWhite: 3px solid $white;
+
+html, body, #container
+{
+	widows: 100%;
+	height: 100%;
+}
+
+body
+{
+	color: $white;	
+}
+
+h1, h2, #btndiscover, #btnview, #btnnew
+{
+	display: block;
+}
+
+h1, #btndiscover, hgroup, #centerparagraph, #btnview, #btnnew
+{
+	margin: 0 auto;
+}
+
+a
+{
+	text-decoration: none;
+	color: $white;
+}
+
+h2, #btndiscover, #centerparagraph, #btnview, #btnnew
+{
+	text-align: center;
+}
+
+#btndiscover, h1, #church, #tower, #btnview, #btnnew
+{
+	background-repeat: no-repeat;
+}
+
+.invisible
+{
+	display: none;
+}
+
+body
+{
+	font-size: 62.5%;
+	font-family: 'condlight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #abddc4;
+}
+
+#container
+{
+	position: relative;
+	min-height: 100%;
+}
+
+.corner
+{
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	border: $borderWhite;
+}
+
+.topleft
+{
+	left: 10px;
+	top: 10px;
+}
+
+.topright
+{
+	right: 10px;
+	top: 10px;
+}
+
+.bottomleft
+{
+	bottom: 10px;
+	left: 10px;
+}
+
+.bottomright
+{
+	right: 10px;
+	bottom: 10px;
+}
+
+#frame
+{
+	top: 25px;
+	left: 25px;
+	right: 25px;
+	bottom: 25px;
+	position: absolute;
+	padding: 10px;
+	border: $borderWhite;
+	z-index: -1;
+}
+
+#church
+{
+	bottom: 25px;
+	left: 10%;
+	position: absolute;
+	width: 214px;
+	height: 461px;
+	background-image: url("../images/church.png");
+}
+
+#tower
+{
+	right: 10%;
+	bottom: 25px;
+	position: absolute;
+	width: 144px;
+	height: 444px;
+	background-image: url("../images/tower.png");
+}
+
+#btngarden, #btnmap
+{
+	font-family: "medium";
+	position: absolute;
+	left: 85px;
+	top: 85px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 1.8em;
+}
+
+#home
+{
+	height: 100%
+}
+
+#headerhome
+{
+	padding-top: 175px;	
+	margin-bottom: 75px;
+
+	hgroup
+	{
+		width: 80%;
+
+		h1
+		{
+			width: 135px;
+			height: 194px;
+			background-image: url("../images/logo.png");
+			margin-bottom: 25px;
+		}
+
+		h2
+		{
+			font-size: 3em;
+			line-height: 1.4em;
+			letter-spacing: 0.05em;
+		}
+	}
+}
+
+#centerparagraph
+{
+	width: 80%;
+	font-family: "condlight";
+	font-size: 1.8em;
+	line-height: 1.2em;
+	letter-spacing: 0.05em;
+	margin-bottom: 35px;
+}
+
+#btndiscover, #btnview, #btnnew
+{
+	font-family: "medium";
+	background-image: url("../images/btnframe.png");
+	width: 269px;
+	height: 60px;
+	padding-top: 22px;
+	font-size: 1.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+#zentrijk
+{
+	width: 100%;
+	height: 100%;
+}
+
+#map
+{
+	width: 100%;
+	height: 100%;
+	padding-top: 2%;
+	background-color: #9fd0b8;
+}
+
+#mapbox
+{
+	margin-left: 2%;
+	width: 96%;
+	height: 96%;	
+}
+
+#gridchoice
+{
+	a
+	{
+		float: left;
+	}
+}
+
+#btnview
+{
+	margin-right: 15px;
+}
+
+.clear
+{
+	clear: both;
+}
+
+@media screen and(max-width: 850px)
+{
+	#church, #tower
+	{
+		display: none;
+	}
+}
+
+@media screen and(max-height: 460px)
+{
+	#headerhome
+	{
+		padding-top: 50px;
+		margin-bottom: 25px;
+
+		h1
+		{
+			width: 68px !important;
+			height: 97px !important;
+			background-image: url("../images/logomobile.png") !important;
+		}
+
+		h2
+		{
+			font-size: 1.5em !important;
+			letter-spacing: 0em !important;
+		}
+	}
+
+	#centerparagraph
+	{
+		font-size: 1.2em !important;
+	}	
+
+	#btndiscover
+	{ 
+		padding-top: 16px; 
+		font-size: 1.4em !important;
+		background-image: url("../images/btnframemobile.png") !important;
+		width: 202px !important;
+		height: 45px !important;
+
+	}
+
+	.corner
+	{
+		width: 7px;
+		height: 7px;
+	}
+
+	#frame
+	{
+		top: 15px;
+		left: 15px;
+		right: 15px;
+		bottom: 15px;	
+	}
+
+	.topleft
+	{
+		left: 5px;
+		top: 5px;
+	}
+
+	.topright
+	{
+		right: 5px;
+		top: 5px;
+	}
+
+	.bottomleft
+	{
+		bottom: 5px;
+		left: 5px;
+	}
+
+	.bottomright
+	{
+		right: 5px;
+		bottom: 5px;
+	}
+
+	#church, #tower
+	{
+		bottom: 15px !important;
+	}
+}
+
+@media screen and(max-height: 760px)
+{
+	#btndiscover
+	{
+		padding-bottom: 30px;
+	}
+}
+
+
+
+
+
+
