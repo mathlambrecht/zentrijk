@@ -80,8 +80,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 10, ../sass/screen.scss */
-html, body, #container {
-  widows: 100%;
+html, body, .container {
+  width: 100%;
   height: 100%;
 }
 
@@ -129,12 +129,17 @@ body {
 }
 
 /* line 59, ../sass/screen.scss */
-#container {
+#wrapper {
+  width: 100%;
+}
+
+/* line 64, ../sass/screen.scss */
+.container {
   position: relative;
   min-height: 100%;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .corner {
   width: 12px;
   height: 12px;
@@ -142,32 +147,32 @@ body {
   border: 3px solid white;
 }
 
-/* line 73, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 .topleft {
   left: 10px;
   top: 10px;
 }
 
-/* line 79, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .topright {
   right: 10px;
   top: 10px;
 }
 
-/* line 85, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .bottomleft {
   bottom: 10px;
   left: 10px;
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .bottomright {
   right: 10px;
   bottom: 10px;
 }
 
-/* line 97, ../sass/screen.scss */
-#frame {
+/* line 102, ../sass/screen.scss */
+.frame {
   top: 25px;
   left: 25px;
   right: 25px;
@@ -175,10 +180,9 @@ body {
   position: absolute;
   padding: 10px;
   border: 3px solid white;
-  z-index: -1;
 }
 
-/* line 109, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 #church {
   bottom: 25px;
   left: 10%;
@@ -188,7 +192,7 @@ body {
   background-image: url("../images/church.png");
 }
 
-/* line 119, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 #tower {
   right: 10%;
   bottom: 25px;
@@ -198,7 +202,7 @@ body {
   background-image: url("../images/tower.png");
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
 #btngarden, #btnmap {
   font-family: "medium";
   position: absolute;
@@ -209,35 +213,30 @@ body {
   font-size: 1.8em;
 }
 
-/* line 140, ../sass/screen.scss */
-#home {
-  height: 100%;
-}
-
-/* line 145, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 #headerhome {
   padding-top: 175px;
   margin-bottom: 75px;
 }
-/* line 150, ../sass/screen.scss */
+/* line 149, ../sass/screen.scss */
 #headerhome hgroup {
   width: 80%;
 }
-/* line 154, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 #headerhome hgroup h1 {
   width: 135px;
   height: 194px;
   background-image: url("../images/logo.png");
   margin-bottom: 25px;
 }
-/* line 162, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 #headerhome hgroup h2 {
   font-size: 3em;
   line-height: 1.4em;
   letter-spacing: 0.05em;
 }
 
-/* line 171, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 #centerparagraph {
   width: 80%;
   font-family: "condlight";
@@ -247,7 +246,7 @@ body {
   margin-bottom: 35px;
 }
 
-/* line 181, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 #btndiscover, #btnview, #btnnew {
   font-family: "medium";
   background-image: url("../images/btnframe.png");
@@ -259,72 +258,88 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* line 193, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
+#headermap {
+  background-image: url("../images/hands.png");
+  width: 139px;
+  height: 143px;
+  background-repeat: no-repeat;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+/* line 202, ../sass/screen.scss */
 #zentrijk {
   width: 100%;
   height: 100%;
-}
-
-/* line 199, ../sass/screen.scss */
-#map {
-  width: 100%;
-  height: 100%;
-  padding-top: 2%;
   background-color: #9fd0b8;
 }
-
-/* line 207, ../sass/screen.scss */
-#mapbox {
-  margin-left: 2%;
-  width: 96%;
-  height: 96%;
+/* line 208, ../sass/screen.scss */
+#zentrijk header {
+  padding-top: 55px;
+}
+/* line 212, ../sass/screen.scss */
+#zentrijk header h2 {
+  font-size: 1.8em;
+  line-height: 1.2em;
+  letter-spacing: 0.05em;
+  margin-bottom: 50px;
 }
 
-/* line 216, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
+#mapbox {
+  position: absolute;
+  left: 55px;
+  right: 55px;
+  bottom: 55px;
+  top: 355px;
+}
+
+/* line 233, ../sass/screen.scss */
 #gridchoice a {
   float: left;
 }
 
-/* line 222, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 #btnview {
   margin-right: 15px;
 }
 
-/* line 227, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 .clear {
   clear: both;
 }
 
 @media screen and (max-width: 850px) {
-  /* line 234, ../sass/screen.scss */
+  /* line 251, ../sass/screen.scss */
   #church, #tower {
     display: none;
   }
 }
 @media screen and (max-height: 460px) {
-  /* line 242, ../sass/screen.scss */
+  /* line 259, ../sass/screen.scss */
   #headerhome {
     padding-top: 50px;
     margin-bottom: 25px;
   }
-  /* line 247, ../sass/screen.scss */
+  /* line 264, ../sass/screen.scss */
   #headerhome h1 {
     width: 68px !important;
     height: 97px !important;
     background-image: url("../images/logomobile.png") !important;
   }
-  /* line 254, ../sass/screen.scss */
+  /* line 271, ../sass/screen.scss */
   #headerhome h2 {
     font-size: 1.5em !important;
     letter-spacing: 0em !important;
   }
 
-  /* line 261, ../sass/screen.scss */
+  /* line 278, ../sass/screen.scss */
   #centerparagraph {
     font-size: 1.2em !important;
   }
 
-  /* line 266, ../sass/screen.scss */
+  /* line 283, ../sass/screen.scss */
   #btndiscover {
     padding-top: 16px;
     font-size: 1.4em !important;
@@ -333,52 +348,87 @@ body {
     height: 45px !important;
   }
 
-  /* line 276, ../sass/screen.scss */
+  /* line 292, ../sass/screen.scss */
   .corner {
     width: 7px;
     height: 7px;
   }
 
-  /* line 282, ../sass/screen.scss */
-  #frame {
+  /* line 298, ../sass/screen.scss */
+  .frame {
     top: 15px;
     left: 15px;
     right: 15px;
     bottom: 15px;
   }
 
-  /* line 290, ../sass/screen.scss */
+  /* line 306, ../sass/screen.scss */
   .topleft {
     left: 5px;
     top: 5px;
   }
 
-  /* line 296, ../sass/screen.scss */
+  /* line 312, ../sass/screen.scss */
   .topright {
     right: 5px;
     top: 5px;
   }
 
-  /* line 302, ../sass/screen.scss */
+  /* line 318, ../sass/screen.scss */
   .bottomleft {
     bottom: 5px;
     left: 5px;
   }
 
-  /* line 308, ../sass/screen.scss */
+  /* line 324, ../sass/screen.scss */
   .bottomright {
     right: 5px;
     bottom: 5px;
   }
 
-  /* line 314, ../sass/screen.scss */
+  /* line 330, ../sass/screen.scss */
   #church, #tower {
     bottom: 15px !important;
   }
 }
+/* line 336, ../sass/screen.scss */
+.pipe {
+  width: 10px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  border-top: 5px solid #ABDDC4;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  border-bottom: 5px solid #9FD0B8;
+  z-index: 99;
+}
+
 @media screen and (max-height: 760px) {
-  /* line 322, ../sass/screen.scss */
+  /* line 352, ../sass/screen.scss */
   #btndiscover {
     padding-bottom: 30px;
   }
+}
+/* line 358, ../sass/screen.scss */
+#grid {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 364, ../sass/screen.scss */
+.marker {
+  float: left;
+  width: 33.33%;
+  height: 33.33%;
+}
+/* line 370, ../sass/screen.scss */
+.marker a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 25%;
+  text-align: center;
+  font-size: 3em;
 }

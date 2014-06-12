@@ -6,9 +6,9 @@
 $white: #FFFFFF;
 $borderWhite: 3px solid $white;
 
-html, body, #container
+html, body, .container
 {
-	widows: 100%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -55,7 +55,12 @@ body
 	background-color: #abddc4;
 }
 
-#container
+#wrapper
+{
+	width: 100%;
+}
+
+.container
 {
 	position: relative;
 	min-height: 100%;
@@ -93,7 +98,7 @@ body
 	bottom: 10px;
 }
 
-#frame
+.frame
 {
 	top: 25px;
 	left: 25px;
@@ -102,7 +107,6 @@ body
 	position: absolute;
 	padding: 10px;
 	border: $borderWhite;
-	z-index: -1;
 }
 
 #church
@@ -134,11 +138,6 @@ body
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	font-size: 1.8em;
-}
-
-#home
-{
-	height: 100%
 }
 
 #headerhome
@@ -189,25 +188,43 @@ body
 	letter-spacing: 0.05em;
 }
 
+#headermap
+{
+	background-image: url('../images/hands.png');
+	width: 139px;
+	height: 143px;
+	background-repeat: no-repeat;
+	margin-top: 25px;
+	margin-bottom: 50px;
+}
+
 #zentrijk
 {
 	width: 100%;
 	height: 100%;
-}
-
-#map
-{
-	width: 100%;
-	height: 100%;
-	padding-top: 2%;
 	background-color: #9fd0b8;
+
+	header
+	{
+		padding-top: 55px;
+
+		h2
+		{
+			font-size: 1.8em;
+			line-height: 1.2em;
+			letter-spacing: 0.05em;
+			margin-bottom: 50px;
+		}
+	}
 }
 
 #mapbox
 {
-	margin-left: 2%;
-	width: 96%;
-	height: 96%;	
+	position: absolute;
+	left: 55px;
+	right: 55px;
+	bottom: 55px;
+	top: 355px;
 }
 
 #gridchoice
@@ -269,7 +286,6 @@ body
 		background-image: url("../images/btnframemobile.png") !important;
 		width: 202px !important;
 		height: 45px !important;
-
 	}
 
 	.corner
@@ -278,7 +294,7 @@ body
 		height: 7px;
 	}
 
-	#frame
+	.frame
 	{
 		top: 15px;
 		left: 15px;
@@ -316,6 +332,20 @@ body
 	}
 }
 
+.pipe
+{
+	width: 10px;
+	height: 50px;
+	position: absolute;
+	left: 50%;
+	bottom: -30px;
+	border-top: 5px solid #ABDDC4;
+	border-left: $borderWhite;
+	border-right: $borderWhite;
+	border-bottom: 5px solid #9FD0B8;
+	z-index: 99;
+}
+
 @media screen and(max-height: 760px)
 {
 	#btndiscover
@@ -324,8 +354,28 @@ body
 	}
 }
 
+#grid
+{
+	width: 100%;
+	height: 100%;
+}
 
+.marker
+{
+	float: left;
+	width: 33.33%;
+	height: 33.33%;
 
+	a
+	{
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding-top: 25%;
+		text-align: center;
+		font-size: 3em;
+	}
+}
 
 
 

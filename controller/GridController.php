@@ -1,17 +1,21 @@
 <?php
 
 require_once WWW_ROOT.'controller'.DS.'AppController.php';
-require_once WWW_ROOT.'dao'.DS.'SpotsDAO.php';
+
+require_once WWW_ROOT.'dao'.DS.'UserDAO.php';
+require_once WWW_ROOT.'dao'.DS.'GridDAO.php';
 
 class GridController extends AppController 
 {
-	public $PhotosDAO;
+    public $UserDAO;
+    public $GridDAO;
 
 	public function __construct() 
     {
         parent::__construct();
-        require_once WWW_ROOT.'dao'.DS.'PhotosDAO.php';
-        $this->photosDAO = new PhotosDAO();
+
+        $this->userDAO = new UserDAO();
+        $this->gridDAO = new gridDAO();
     }
 
     public function grid()
@@ -33,6 +37,12 @@ class GridController extends AppController
             $this->login();
             exit();
         }
+
+        if(!empty($_GET['action']) && $_GET['action'] == 'assignphoto')
+        {
+            $this->assignPhoto();
+            exit();
+        }
     }
 
     public function view()
@@ -42,11 +52,35 @@ class GridController extends AppController
 
     public function login()
     {
-        require_once WWW_ROOT.'pages'.DS.'parts'.DS.'login.php';
+        if(!empty($_POST['txtcode']) && !empty($_POST['selectgroup']))
+        {
+            $result = $this->userDAO->validateCode($_POST['txtcode']);
+
+            if(!$result)
+            {
+                //wrong
+                require_once WWW_ROOT.'pages'.DS.'parts'.DS.'login.php';
+            }
+            else
+            {
+                $_SESSION['code'] = $result['code'];
+                $_SESSION['groupid'] = $_POST['selectgroup'];
+
+                require_once WWW_ROOT.'pages'.DS.'parts'.DS.'new.php';
+            }
+        } 
+        else
+        {
+            //feedback wrong form
+            require_once WWW_ROOT.'pages'.DS.'parts'.DS.'login.php';
+        }
     }
 
-    public function create()
+    public function assignphoto()
     {
-        
+        $arrPhotos = $this->gridDAO->getPhotosByCodeAndGroupId($_SESSION['code'], $_SESSION['groupid']);
+        $this->set('arrPhotos', $arrPhotos);
+
+        require_once WWW_ROOT.'pages'.DS.'parts'.DS.'assign.php';
     }
 }
