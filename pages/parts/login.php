@@ -6,7 +6,7 @@
   <div class="frame"></div> -->
 
   <section id='loginsection' >
-	<form method='POST' action='index.php?page=grid&action=create'>
+	<form method='POST' action='index.php?page=grid&action=login'>
 		<fieldset>
 			<label for="txtcode">1.Dagcode</label>
 			<input type="text" name='txtcode' id="txtcode" tabindex="1" /></br>

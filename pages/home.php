@@ -1,4 +1,4 @@
-  <div class='container'>
+<div class='container'>
     <div id="church"></div>
     <div id="tower"></div>
     <div class="corner topleft"></div>
@@ -73,4 +73,3 @@
     </section>
   </div>
 </div>
-

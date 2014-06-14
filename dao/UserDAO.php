@@ -16,7 +16,7 @@ class UserDAO
    		$sql = 'SELECT * FROM er_codes WHERE code = :code';
 
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(":code", $code);
+        $stmt->bindValue(":code", sha1($code));
 
         if($stmt-> execute())
         {

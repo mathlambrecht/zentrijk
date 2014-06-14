@@ -1,6 +1,6 @@
-<?php session_start(); ?>
-
 <?php
+ob_start();
+session_start();
 define('DS', DIRECTORY_SEPARATOR);
 define('WWW_ROOT', dirname(__FILE__) . DS);
 

@@ -1,5 +1,4 @@
 <?php
-
 class AppController 
 {
 	public $route = array();
@@ -7,9 +6,9 @@ class AppController
 
 	public function __construct() 
 	{
-	    require WWW_ROOT . 'parts/header.php';
-	    require WWW_ROOT . 'parts/errors.php';
-    	require WWW_ROOT . 'parts/footer.php';
+	    require WWW_ROOT.'parts/header.php';
+	    require WWW_ROOT.'parts/errors.php';
+    	require WWW_ROOT.'parts/footer.php';
 	}
 
 	public function filter() 

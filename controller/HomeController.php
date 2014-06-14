@@ -1,5 +1,4 @@
 <?php
-
 require_once WWW_ROOT.'controller'.DS.'AppController.php';
 require_once WWW_ROOT.'dao'.DS.'SpotsDAO.php';
 
@@ -19,4 +18,4 @@ class HomeController extends AppController
         $spots = $this->spotsDAO->getSpots();
         $this -> set("arrSpots", $spots);
     }
-  }
+}
