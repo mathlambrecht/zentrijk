@@ -11,6 +11,8 @@ class GridController extends AppController
     public $PhotosDAO;
     public $GridDAO;
 
+    private $isArrGridPhotos;
+
 	public function __construct() 
     {
         parent::__construct();
@@ -22,12 +24,6 @@ class GridController extends AppController
 
     public function grid()
     {
-        if(!empty($_GET['action']) && $_GET['action'] == 'view')
-        {
-            $this->view();
-            exit();
-        }
-
         if(!empty($_GET['action']) && $_GET['action'] == 'login')
         {
             $this->login();
@@ -51,12 +47,24 @@ class GridController extends AppController
             $this->assignPhoto();
             exit();
         }
+
+        if(!empty($_GET['action']) && $_GET['action'] == 'logout')
+        {
+            unset($_SESSION['code']);
+            unset($_SESSION['groupid']);
+
+            $_SESSION['isLoggedIn'] = false;
+
+            header('Location:index.php?page=home');
+            exit();
+        }
+        else
+        {
+            header('Location:index.php?page=grid&action=login');   
+            exit();
+        }
     }
 
-    public function view()
-    {
-        require_once WWW_ROOT.'pages'.DS.'parts'.DS.'view.php';
-    }
 
     public function login()
     {
@@ -75,12 +83,16 @@ class GridController extends AppController
                 $_SESSION['code'] = $result['code'];
                 $_SESSION['groupid'] = $_POST['selectgroup'];
 
-                header('Location:index.php?page=index&action=showgrid');
+                $isArrGridPhotos = false;
+
+                header('Location:index.php?page=grid&action=showgrid');
+                exit();
             }
         } 
         elseif(!empty($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'])
         {
             header('Location:index.php?page=grid&action=showgrid');
+            exit();
         }
         else
         {
@@ -93,9 +105,9 @@ class GridController extends AppController
     {
         if(!empty($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'])
         {
-            if(file_exists(WWW_ROOT.$_SESSION['code'].$_SESSION['groupid'].'.json'))
+            if(file_exists(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json'))
             {
-                $json = file_get_contents(WWW_ROOT.$_SESSION['code'].$_SESSION['groupid'].'.json');
+                $json = file_get_contents(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json');
                 $json = json_decode($json, true);
 
                 $isArrGridPhotos = true;
@@ -104,60 +116,84 @@ class GridController extends AppController
 
                 $this->set('isArrPhotos', true);
                 $this->set('arrGridPhotos', $arrGridPhotos);
-
-                require_once WWW_ROOT.'pages'.DS.'parts'.DS.'grid.php';                                
             }
+            else
+            {
+                $isArrGridPhotos = false;
+            }
+
+            require_once WWW_ROOT.'pages'.DS.'parts'.DS.'grid.php';                                
         }
         else
         {
             header('Location:index.php?page=grid&action=login');   
+            exit();
         }
     }
 
     public function showPhotos()
     {
-        $arrPhotos = $this->photosDAO->getPhotosByCodeAndGroupId($_SESSION['code'], $_SESSION['groupid']);
-        $this->set('arrPhotos', $arrPhotos);
+        if(!empty($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'])
+        {
+            if(!empty($_SESSION['code']) && !empty($_SESSION['groupid']))
+            {
+                $arrPhotos = $this->photosDAO->getPhotosByCodeAndGroupId($_SESSION['code'], $_SESSION['groupid']);
+                $this->set('arrPhotos', $arrPhotos);
 
-        $_SESSION['gridid'] = $_POST['gridid'];
+                $_SESSION['gridid'] = $_POST['gridid'];
 
-        require_once WWW_ROOT.'pages'.DS.'parts'.DS.'assign.php';
+                require_once WWW_ROOT.'pages'.DS.'parts'.DS.'assign.php';
+            }
+        }
+        else
+        {
+            header('Location:index.php?page=grid&action=login');   
+            exit();
+        }
     }
 
     public function assignPhoto()
     {
-        $result = false;
+        if(!empty($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'])
+        {
+            if(file_exists(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json'))
+            {
+                //add to json
+                $json = file_get_contents(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json');
+                $json = json_decode($json, true);
 
-        if($result)
-        {
-            //add to json
-        }
-        else
-        {
-            $json = 
-            '{ 
-                "grid":
-                    {
-                        "code":"'.$_SESSION["code"].'",
-                        "groupid":"'.(string)$_SESSION["groupid"].'",
-                        "images":
+                $newimage = array('photopath' => $_POST['photopath'], 'gridid' => (string)$_SESSION['gridid']);
+                array_push($json['grid']['images'], $newimage);
+                $json = json_encode($json);
+            }
+            else
+            {
+                $json = 
+                '{ 
+                    "grid":
                         {
-                            "image":
+                            "code":"'.$_SESSION["code"].'",
+                            "groupid":"'.(string)$_SESSION["groupid"].'",
+                            "images":
                             {
-                                "photopath":"'.$_POST["photopath"].'",
-                                "gridid":"'.(string)($_SESSION["gridid"]).'"
+                                "image":
+                                {
+                                    "photopath":"'.$_POST["photopath"].'",
+                                    "gridid":"'.(string)($_SESSION["gridid"]).'"
+                                }
                             }
                         }
-                    }
-                }';
+                    }';
+            }
 
             $json = utf8_decode($json);
 
-            $fp = fopen(WWW_ROOT.$_SESSION['code'].$_SESSION['groupid'].'.json', 'w');
+            $fp = fopen(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json', 'w');
             fwrite($fp, $json);
             fclose($fp);
-
-            header('Location:index.php?page=grid&action=showgrid');
         }
+
+        header('Location:index.php?page=grid&action=showgrid');
+        exit();
     }
 }
