@@ -354,14 +354,6 @@ body
 	}
 }
 
-#marker1, #marker2, #marker3, #marker4, #marker5, #marker6, #marker7, #marker8, #marker9, #marker10, #marker11, #marker12
-{
-	float: left;
-	width: 25%;
-	height: 33%;
-	text-align: center;
-}
-
 #grid
 {
 	position: absolute;
@@ -370,4 +362,206 @@ body
 	right: 28px;
 	bottom: 28px;
 }
+
+#marker1, #marker2, #marker3, #marker4, #marker5, #marker6, #marker7, #marker8, #marker9, #marker10, #marker11, #marker12
+{
+	position: absolute;
+	width: 25%;
+	height: 33.33%;
+	text-align: center;
+
+	img
+	{
+		height: 100%;
+		width: 100%;
+	}
+}
+
+#marker1
+{
+	top: 0;
+	left: 0;
+}
+
+#marker2
+{
+	left: 25%;
+	top: 0;
+}
+
+#marker3
+{
+	left: 50%;
+	top: 0;
+}
+
+#marker4
+{
+	left: 75%;
+	top: 0;
+}
+
+#marker5
+{
+	left: 0;
+	top: 33.33%;
+}
+
+#marker6
+{
+	left: 25%;
+	top: 33.33%;
+}
+
+#marker7
+{
+	left: 50%;
+	top: 33.33%;
+}
+
+#marker8
+{
+	left: 75%;
+	top: 33.33%;
+}
+
+#marker9
+{
+	left: 0;
+	top: 66.66%;
+}
+
+#marker10
+{
+	left: 25%;
+	top: 66.66%;
+}
+
+#marker11
+{
+	left: 50%;
+	top: 66.66%;
+}
+
+#marker12
+{
+	left: 75%;
+	top: 66.66%;
+}
+
+#grid
+{
+	input[type='submit']
+	{
+		padding-top: 25%;
+		font-family: 'medium';
+		color: #83c0a1;
+		font-size: 3em;
+		border: 0;
+		background-color: #ABDDC4;
+		cursor: pointer;
+	}	
+}
+
+#loginsection
+{
+	header
+	{
+		padding-top: 213px;	
+		margin-bottom: 175px;
+	}
+
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+	form
+	{
+		margin: 0 auto;
+		display: inline-block;
+	  	position: relative;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+ 		transform: translateY(-50%);
+ 		font-size: 1.8em;
+		font-family: 'medium';
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-align: right;
+
+		input:focus, textarea:focus
+		{
+			outline:none;
+		}
+
+		fieldset
+		{
+			float: left;
+			margin-right: 20px;
+		}
+
+		label
+		{
+			line-height: 38px;
+			display: inline-block;
+			margin-bottom: 30px;
+		}
+
+		input[type='text']
+		{
+			border: $borderWhite;
+			height: 45px;
+			width: 250px;
+			margin-left: 10px;
+			margin-bottom: 25px;
+			background-color: transparent;
+			padding-left: 10px;
+			font-size: 1.1em;
+			color: #FFFFFF;
+			font-family: 'medium';
+		}
+
+		input[type='submit']
+		{
+			background-image: url('../images/submitlogin.png');
+			width: 269px;
+			height: 60px;
+			border: none;
+			background-color: transparent;
+			font-size: 1.2em;
+			font-family: 'medium';
+			text-transform: uppercase;
+			color: #FFFFFF;
+			letter-spacing: 0.05em;
+			margin-top: 20px;
+			cursor: pointer;
+		}
+	}
+}
+
+#choosesection
+{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	
+	#buttons
+	{
+		margin: 0 auto;
+		display: inline-block;
+	  	position: relative;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+ 		transform: translateY(-50%);
+	}
+	
+	a
+	{
+		float: left;
+		margin-left: 20px;
+	}
+}
+
 

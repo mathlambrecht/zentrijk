@@ -24,6 +24,12 @@ class GridController extends AppController
 
     public function grid()
     {
+        if(!empty($_GET['action']) && $_GET['action'] == 'choose')
+        {
+            $this->choose();
+            exit;
+        }
+
         if(!empty($_GET['action']) && $_GET['action'] == 'login')
         {
             $this->login();
@@ -65,6 +71,10 @@ class GridController extends AppController
         }
     }
 
+    public function choose()
+    {
+        require_once WWW_ROOT.'pages'.DS.'parts'.DS.'choose.php';
+    }
 
     public function login()
     {

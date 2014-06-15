@@ -412,18 +412,198 @@ body {
   }
 }
 /* line 358, ../sass/screen.scss */
-#marker1, #marker2, #marker3, #marker4, #marker5, #marker6, #marker7, #marker8, #marker9, #marker10, #marker11, #marker12 {
-  float: left;
-  width: 25%;
-  height: 33%;
-  text-align: center;
-}
-
-/* line 366, ../sass/screen.scss */
 #grid {
   position: absolute;
   top: 28px;
   left: 28px;
   right: 28px;
   bottom: 28px;
+}
+
+/* line 367, ../sass/screen.scss */
+#marker1, #marker2, #marker3, #marker4, #marker5, #marker6, #marker7, #marker8, #marker9, #marker10, #marker11, #marker12 {
+  position: absolute;
+  width: 25%;
+  height: 33.33%;
+  text-align: center;
+}
+/* line 374, ../sass/screen.scss */
+#marker1 img, #marker2 img, #marker3 img, #marker4 img, #marker5 img, #marker6 img, #marker7 img, #marker8 img, #marker9 img, #marker10 img, #marker11 img, #marker12 img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 381, ../sass/screen.scss */
+#marker1 {
+  top: 0;
+  left: 0;
+}
+
+/* line 387, ../sass/screen.scss */
+#marker2 {
+  left: 25%;
+  top: 0;
+}
+
+/* line 393, ../sass/screen.scss */
+#marker3 {
+  left: 50%;
+  top: 0;
+}
+
+/* line 399, ../sass/screen.scss */
+#marker4 {
+  left: 75%;
+  top: 0;
+}
+
+/* line 405, ../sass/screen.scss */
+#marker5 {
+  left: 0;
+  top: 33.33%;
+}
+
+/* line 411, ../sass/screen.scss */
+#marker6 {
+  left: 25%;
+  top: 33.33%;
+}
+
+/* line 417, ../sass/screen.scss */
+#marker7 {
+  left: 50%;
+  top: 33.33%;
+}
+
+/* line 423, ../sass/screen.scss */
+#marker8 {
+  left: 75%;
+  top: 33.33%;
+}
+
+/* line 429, ../sass/screen.scss */
+#marker9 {
+  left: 0;
+  top: 66.66%;
+}
+
+/* line 435, ../sass/screen.scss */
+#marker10 {
+  left: 25%;
+  top: 66.66%;
+}
+
+/* line 441, ../sass/screen.scss */
+#marker11 {
+  left: 50%;
+  top: 66.66%;
+}
+
+/* line 447, ../sass/screen.scss */
+#marker12 {
+  left: 75%;
+  top: 66.66%;
+}
+
+/* line 455, ../sass/screen.scss */
+#grid input[type='submit'] {
+  padding-top: 25%;
+  font-family: 'medium';
+  color: #83c0a1;
+  font-size: 3em;
+  border: 0;
+  background-color: #ABDDC4;
+  cursor: pointer;
+}
+
+/* line 467, ../sass/screen.scss */
+#loginsection {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/* line 469, ../sass/screen.scss */
+#loginsection header {
+  padding-top: 213px;
+  margin-bottom: 175px;
+}
+/* line 479, ../sass/screen.scss */
+#loginsection form {
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 1.8em;
+  font-family: 'medium';
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+/* line 494, ../sass/screen.scss */
+#loginsection form input:focus, #loginsection form textarea:focus {
+  outline: none;
+}
+/* line 499, ../sass/screen.scss */
+#loginsection form fieldset {
+  float: left;
+  margin-right: 20px;
+}
+/* line 505, ../sass/screen.scss */
+#loginsection form label {
+  line-height: 38px;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+/* line 512, ../sass/screen.scss */
+#loginsection form input[type='text'] {
+  border: 3px solid white;
+  height: 45px;
+  width: 250px;
+  margin-left: 10px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  padding-left: 10px;
+  font-size: 1.1em;
+  color: #FFFFFF;
+  font-family: 'medium';
+}
+/* line 526, ../sass/screen.scss */
+#loginsection form input[type='submit'] {
+  background-image: url("../images/submitlogin.png");
+  width: 269px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.2em;
+  font-family: 'medium';
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* line 544, ../sass/screen.scss */
+#choosesection {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/* line 550, ../sass/screen.scss */
+#choosesection #buttons {
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 561, ../sass/screen.scss */
+#choosesection a {
+  float: left;
+  margin-left: 20px;
 }

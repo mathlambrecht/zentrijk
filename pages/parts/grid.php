@@ -17,30 +17,39 @@
 
 				if($isArrGridPhotos)
 				{
+					$gridcount = 0;
+
 					foreach($arrGridPhotos as $photo)
 					{ ?>
 						<div id="marker<?php echo $photo['gridid'];?>">
-							<img src="<?php echo $photo['photopath']; ?>" />
+							<img class="gridimage" src="<?php echo $photo['photopath']; ?>" />
 						</div>
-					<?php }
 
-					foreach($arrGridPhotos as $photo)
-					{
-						$arrPhotos[] = $photo['gridid'];
+						
+					<?php
+						$gridcount ++; 
 					}
 
-					$result = array_diff($arrForms, $arrPhotos);
-
-					foreach($result as $result)
+					if($gridcount < 9)
 					{
-						?>			
-						<div id="marker<?php echo $result; ?>">
-							<form method='POST' action="index.php?page=grid&action=showphotos">
-								<input type="hidden" name="gridid" value="<?php echo $i; ?>" />
-								<input type="submit" value="+" />
-							</form>
-						</div>
-						<?php
+						foreach($arrGridPhotos as $photo)
+						{
+							$arrPhotos[] = $photo['gridid'];
+						}
+
+						$result = array_diff($arrForms, $arrPhotos);
+
+						foreach($result as $number)
+						{
+							?>			
+							<div id="marker<?php echo $number; ?>">
+								<form method='POST' action="index.php?page=grid&action=showphotos">
+									<input type="hidden" name="gridid" value="<?php echo $number; ?>" />
+									<input type="submit" value="+" />
+								</form>
+							</div>
+							<?php
+						}
 					}
 				}
 				else
@@ -57,8 +66,7 @@
 						<?php
 					}
 				}
-
 			?>
 	</section>
-	<a href="index.php?page=grid&action=logout" />Logout</a>
+	<a href="index.php?page=grid&action=logout">Logout</a>
 </div>
