@@ -6,6 +6,8 @@
   <div class="frame"></div>
 
 	<section id='grid'>
+ 	<a id="btngarden" href="http://localhost/zentrijk/index.php?page=home">home</a>	
+	<a id="btnlogout" href="index.php?page=grid&action=logout">Logout</a>	
 		<?php 
 			$arrPhotos =  array();
 			$arrForms =  array();
@@ -105,5 +107,4 @@
 			}
 		?>
 	</section>
-	<a id="btngarden" href="index.php?page=grid&action=logout">Logout</a>
 </div>

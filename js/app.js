@@ -1,4 +1,6 @@
-(function()
+$("document").ready(init);
+
+function init()
 {
 	//scale images in grid to div size
 	$('.gridimage').each(function(i, item)
@@ -23,33 +25,47 @@
 
 	//validate login
 	$("#txtcode").keyup(checkSixCharacters).blur(checkSixCharacters);
+	$('#loginsection form').submit(submitForm);
 
 	function checkSixCharacters()
 	{
-		console.log('tetten');
-
 		var $el = $(this);
 
-		if ($el.val().length < 6) 
+		if($el.val().length < 6) 
 		{
-			showInValid($el, $el.next(), "Gelieve minimum 6 karakters in te geven.");
+			showInValid($('.errormessage'), "Gelieve minimum 6 karakters in te geven.");
 		}
 		else
 		{
-			showValid($el, $el.next());
+			showValid($('.errormessage'));
 		}
 	}
 
-	function showInValid($el, $errorEl, message)
+	function submitForm(e)
 	{
-		$el.addClass("error");
+		if(!$('.radioselectgroup').is(':checked'))
+		{
+			showInValid($('.errormessage'), "Gelieve een groep te kiezen.");	
+		}
+
+		if($('#txtcode').val().length < 6) 
+		{
+			showInValid($('.errormessage'), "Gelieve minimum 6 karakters in te geven.");
+		}
+
+		if(!$('.radioselectgroup').is(':checked') || $('#txtcode').val().length < 6)
+		{
+			e.preventDefault();			
+		}
+	}
+
+	function showInValid($errorEl, message)
+	{
 		$errorEl.text(message);
 	}
 
-	function showValid($el, $errorEl)
+	function showValid($errorEl)
 	{
-		$el.removeClass("error");
-		$errorEl.text("tetten");
-		$el.addClass("approved");
+		$errorEl.text("");
+	}
 }
-})();

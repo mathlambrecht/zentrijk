@@ -6,6 +6,7 @@
   <div class="frame"></div>
 
   <section id='loginsection'>
+     <a id="btngarden" href="http://localhost/zentrijk/index.php?page=home">home</a>
     <header id="headerhome">
         <hgroup>
           <h1 class="centercontent"><span class="invisible">Zentrijk</span></h1>
@@ -18,18 +19,20 @@
 		</fieldset>
 		<fieldset>
 			<input type="text" name='txtcode' id="txtcode" tabindex="1" /></br>			
-			<span>1</span><input type="radio" name="selectgroup" value="1">
-			<span>2</span><input type="radio" name="selectgroup" value="2">
-			<span>3</span><input type="radio" name="selectgroup" value="3">
-			<span>4</span><input type="radio" name="selectgroup" value="4">
-			<span>5</span><input type="radio" name="selectgroup" value="5"></br>
+			<span>1</span><input type="radio" name="selectgroup" class="radioselectgroup" value="1">
+			<span>2</span><input type="radio" name="selectgroup" class="radioselectgroup" value="2">
+			<span>3</span><input type="radio" name="selectgroup" class="radioselectgroup" value="3">
+			<span>4</span><input type="radio" name="selectgroup" class="radioselectgroup" value="4">
+			<span>5</span><input type="radio" name="selectgroup" class="radioselectgroup" value="5"></br>
 			<input type="submit" name="btnsubmit" id="btnsubmit" tabindex="2"/></br>
 		</fieldset><div id="clear"></div>
-			<?php 
-				if(!empty($isError) && $isError)
-				{ ?>
-					<span class='errormessage'><?php echo $error; ?></span>
-			<?php } ?>
+			<span class='errormessage'>
+				<?php 
+					if(!empty($isError) && $isError)
+					{ ?>
+						<?php echo $error; ?>
+				<?php } ?>
+			</span>
 	</form>  	
   </section>
 </div>
