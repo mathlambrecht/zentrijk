@@ -24,6 +24,8 @@ class GridController extends AppController
 
     public function grid()
     {
+        $isArrGridPhotos = false;
+
         if(!empty($_GET['action']) && $_GET['action'] == 'choose')
         {
             $this->choose();
@@ -51,6 +53,12 @@ class GridController extends AppController
         if(!empty($_GET['action']) && $_GET['action'] == 'assignphoto')
         {
             $this->assignPhoto();
+            exit();
+        }
+
+        if(!empty($_GET['action']) && $_GET['action'] == 'washphoto')
+        {
+            $this->washPhoto();
             exit();
         }
 
@@ -124,6 +132,7 @@ class GridController extends AppController
 
                 $arrGridPhotos = $json['grid']['images'];
 
+                $this->set('isWashable', $_SESSION['isWashable']);
                 $this->set('isArrPhotos', true);
                 $this->set('arrGridPhotos', $arrGridPhotos);
             }
@@ -172,8 +181,14 @@ class GridController extends AppController
                 $json = file_get_contents(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json');
                 $json = json_decode($json, true);
 
-                $newimage = array('photopath' => $_POST['photopath'], 'gridid' => (string)$_SESSION['gridid']);
+                $newimage = array('photopath' => $_POST['photopath'], 'gridid' => (string)$_SESSION['gridid'], "iswashed" => "false");
                 array_push($json['grid']['images'], $newimage);
+
+                if(count($json['grid']['images']) >= 9)
+                {
+                    $_SESSION['isWashable'] = true;
+                }
+
                 $json = json_encode($json);
             }
             else
@@ -189,7 +204,8 @@ class GridController extends AppController
                                 "image":
                                 {
                                     "photopath":"'.$_POST["photopath"].'",
-                                    "gridid":"'.(string)($_SESSION["gridid"]).'"
+                                    "gridid":"'.(string)($_SESSION["gridid"]).'",
+                                    "iswashed": "false"
                                 }
                             }
                         }
@@ -202,6 +218,55 @@ class GridController extends AppController
             fwrite($fp, $json);
             fclose($fp);
         }
+
+        header('Location:index.php?page=grid&action=showgrid');
+        exit();
+    }
+
+    public function washPhoto()
+    {
+        $this->isWashable = true;
+
+        $json = file_get_contents(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json');
+        $json = json_decode($json, true);
+
+        $tmpImages = array();
+
+        $i = 0;
+
+        foreach($json['grid']['images'] as $image)
+        {
+            if($image['iswashed'] == "true")
+            {
+                $i ++;
+            }
+
+            if($i == 5)
+            {
+                $this->isWashable = false;
+            }
+
+            if($this->isWashable)
+            {
+                if($image['gridid'] == $_POST['gridid'])
+                {
+                    $image['iswashed'] = "true";
+                }
+            }
+
+            $tmpImages[] = $image;
+        }
+
+        $json['grid']['images'] = $tmpImages;
+
+        $json = json_encode($json);
+        $json = utf8_decode($json);
+
+        $fp = fopen(WWW_ROOT.DS.'grids'.DS.$_SESSION['code'].$_SESSION['groupid'].'.json', 'w');
+        fwrite($fp, $json);
+        fclose($fp);
+
+        $_SESSION['isWashable'] = $this->isWashable;
 
         header('Location:index.php?page=grid&action=showgrid');
         exit();
