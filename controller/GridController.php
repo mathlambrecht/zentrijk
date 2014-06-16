@@ -68,6 +68,7 @@ class GridController extends AppController
             unset($_SESSION['groupid']);
 
             $_SESSION['isLoggedIn'] = false;
+            $_SESSION['washCount'] = 0;
 
             header('Location:index.php?page=home');
             exit();
@@ -86,13 +87,44 @@ class GridController extends AppController
 
     public function login()
     {
+        if(!empty($_POST))
+        {
+            if(empty($_POST['txtcode']))
+            {
+                $isError = true;
+                $error = 'Gelieve een code in te vullen.';
+                $this->set('isError', $isError);
+                $this->set('error', $error);
+            }
+
+            if(empty($_POST['selectgroup']))
+            {
+                $isError = true;
+                $error = 'Gelieve een groep te kiezen.';
+                $this->set('isError', $isError);
+                $this->set('error', $error);
+            }
+
+            if(empty($_POST['selectgroup']) && empty($_POST['txtcode']))
+            {
+                $isError = true;
+                $error = 'Gelieve een code in te vullen en een groep te kiezen.';
+                $this->set('isError', $isError);
+                $this->set('error', $error);
+            }
+        }
+
         if(!empty($_POST['txtcode']) && !empty($_POST['selectgroup']))
         {
             $result = $this->userDAO->validateCode($_POST['txtcode']);
 
             if(!$result)
             {
-                //wrong
+                //give feedback
+                $isError = true;
+                $error = 'Foutieve code.';
+                $this->set('isError', $isError);
+                $this->set('error', $error);
                 require_once WWW_ROOT.'pages'.DS.'parts'.DS.'login.php';
             }
             else
@@ -234,6 +266,8 @@ class GridController extends AppController
 
         $i = 0;
 
+        $_SESSION['washCount'] = 0;
+
         foreach($json['grid']['images'] as $image)
         {
             if($image['iswashed'] == "true")
@@ -248,10 +282,18 @@ class GridController extends AppController
 
             if($this->isWashable)
             {
-                if($image['gridid'] == $_POST['gridid'])
+                if(!empty($_POST['gridid']))
                 {
-                    $image['iswashed'] = "true";
+                    if($image['gridid'] == $_POST['gridid'])
+                    {
+                        $image['iswashed'] = "true";
+                    }
                 }
+            }
+
+            if($image['iswashed'] == "true")
+            {
+                $_SESSION['washCount'] += 1;
             }
 
             $tmpImages[] = $image;

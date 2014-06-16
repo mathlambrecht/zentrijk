@@ -10,6 +10,28 @@
 			$arrPhotos =  array();
 			$arrForms =  array();
 
+			if(!empty($arrGridPhotos))
+			{	
+				if(count($arrGridPhotos) < 9)
+				{ ?>
+					<h1 id="gridcounter">Selecteer nog <?php echo (9 - count($arrGridPhotos));?> foto's.</h1>
+				<?php }
+				else
+				{	
+					if($_SESSION['isWashable'])
+					{
+						if($_SESSION['washCount'] < 5)
+						{ ?>
+							<h1 id="gridcounter">Klik op <?php echo (5 - $_SESSION['washCount']);?> fotos om ze te faden.</h1>
+						<?php }
+					}
+				}
+			}
+			else
+			{ ?>
+				<h1 id="gridcounter">Dit is je grid, selecteer 9 foto's in een willekeurig vak.</h1>
+			<?php }
+
 			for($i = 1; $i < 13; $i ++)
 			{	
 				$arrForms[] = $i;
@@ -83,5 +105,5 @@
 			}
 		?>
 	</section>
-	<a href="index.php?page=grid&action=logout">Logout</a>
+	<a id="btngarden" href="index.php?page=grid&action=logout">Logout</a>
 </div>

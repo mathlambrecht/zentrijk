@@ -8,7 +8,6 @@ class AppController
 	{
 	    require WWW_ROOT.'parts/header.php';
 	    require WWW_ROOT.'parts/errors.php';
-    	require WWW_ROOT.'parts/footer.php';
 	}
 
 	public function filter() 
@@ -27,6 +26,8 @@ class AppController
 		}
 
 	    require WWW_ROOT.'pages/'.$this->route['action'].'.php';
+
+    	require WWW_ROOT.'parts/footer.php';
 	}
 
 	public function set($variableName, $value) 

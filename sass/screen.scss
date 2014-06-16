@@ -499,6 +499,7 @@ input:focus, textarea:focus
 		{
 			float: left;
 			margin-right: 20px;
+			margin-bottom: 20px;
 		}
 
 		label
@@ -634,5 +635,27 @@ input:focus, textarea:focus
 		background-color: transparent !important;
 		cursor: pointer; 
 	}
+}
+
+#gridcounter
+{
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	z-index: 1;
+	font-family: "medium";
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 1.8em;
+}
+
+.errormessage
+{
+	font-size: 0.6em;
+	letter-spacing: 0em;
+	text-transform: none;
+	margin-right: 20px;
+	color: #ED7829;
 }
 
