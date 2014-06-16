@@ -51,15 +51,12 @@
         <img src="images/mapicon.png" />
         <h3>Zenspots</h3>
         <p>In kortrijk zijn er heel wat rustige plaatsen waar je terug zen kan worden. Het is aan onze leerlingen om deze plaatsen te vinden en op de map te plaatsen, zodat iedereen hier kan van genieten!</p>
+        <a id="btnzentrijk" href="#zentrijk">Ontdek Zentrijk</a>
       </div>
       <div id="erright">
         <img src="images/listicon.png" />
         <h3>Opdrachten</h3>
         <p>Aan de hand van enkele heel leuke opdrachten zullen we samen met de leerlingen het zengevoel van Kortrijk terugvinden. Met alle verzamelde foto’s van de opdrachten maken we samen een zengarden!</p>
-      </div>
-      <div class="clear"></div>
-      <div id="btns">
-        <a id="btnzentrijk" href="#zentrijk">Ontdek Zentrijk</a>
         <a id="btnchoose" href="index.php?page=grid&action=choose">Bekijk grids</a>
       </div>
     </section>
