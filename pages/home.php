@@ -1,11 +1,11 @@
 <div class='container'>
+    <div class="frame"></div>
     <div id="church"></div>
     <div id="tower"></div>
     <div class="corner topleft"></div>
     <div class="corner topright"></div>
     <div class="corner bottomleft"></div>
     <div class="corner bottomright"></div>
-    <div class="frame"></div>
 
     <section id='home'>
       <a id="btngarden" href="http://localhost/zentrijk/index.php?page=grid">grid</a>
@@ -29,11 +29,11 @@
 </div>
 
 <div class="container">
+    <div class  ="frame"></div>
     <div class="corner topleft"></div>
     <div class="corner topright"></div>
     <div class="corner bottomleft"></div>
     <div class="corner bottomright"></div>
-    <div class  ="frame"></div>
 
     <section id='enroute'>
       <header id="headerenroute">
@@ -62,11 +62,11 @@
 </div>
 
 <div class="container">
+    <div class  ="frame"></div>
     <div class="corner topleft"></div>
     <div class="corner topright"></div>
     <div class="corner bottomleft"></div>
     <div class="corner bottomright"></div>
-    <div class  ="frame"></div>
     <section id='zentrijk'>
         <header>
           <hgroup>
@@ -81,8 +81,6 @@
         <?php
           foreach($arrSpots as $spot)
           {?>
-            console.log('tetten');
-
             var pinLayer = L.mapbox.featureLayer().addTo(map);
 
             var geoJson = [{ 

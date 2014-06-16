@@ -68,4 +68,28 @@ function init()
 	{
 		$errorEl.text("");
 	}
+
+	//animations
+	$('#home #btndiscover').click(function(e)
+	{
+		e.preventDefault();
+
+		$('html, body').animate
+		({
+        	scrollTop: $("#enroute").offset().top
+    	}, 500);
+	});
+
+	$('#enroute #btndiscover').click(function(e)
+	{
+		e.preventDefault();
+
+		$('html, body').animate
+		({
+        	scrollTop: $("#zentrijk").offset().top
+    	}, 500);
+	});
+
+	$('#church').addClass('churchtransition');
+	$('#tower').addClass('churchtransition');
 }

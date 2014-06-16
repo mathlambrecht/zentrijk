@@ -1,6 +1,8 @@
 @import "compass/reset";
 @import "compass";
-
+@import "compass/css3";
+@import "compass/css3/opacity";
+@import "compass/css3/transition";
 @import "fonts";
 
 $white: #FFFFFF;
@@ -15,6 +17,10 @@ html, body, .container
 body
 {
 	color: $white;	
+}
+
+#btndiscover
+{
 }
 
 h1, h2, #btndiscover, #btnview, #btnnew
@@ -111,22 +117,40 @@ body
 
 #church
 {
-	bottom: 25px;
+	bottom: -239px;
+	@include opacity(0);
 	left: 10%;
 	position: absolute;
 	width: 214px;
 	height: 461px;
 	background-image: url("../images/church.png");
+
+
+	@include transition-property(bottom 1s ease-out);
+  	@include transition-duration(1s);
+  	@include transition-timing-function(ease-out);
+}
+
+.churchtransition
+{
+	bottom: 25px !important;
+	opacity: 1 !important;	
 }
 
 #tower
 {
 	right: 10%;
-	bottom: 25px;
+	bottom: -239px;
+	@include opacity(0);
 	position: absolute;
 	width: 144px;
 	height: 444px;
 	background-image: url("../images/tower.png");
+
+	@include transition-property(bottom 1s ease-out);
+  	@include transition-duration(1s);
+  	@include transition-timing-function(ease-out);
+  	@include transition-delay(1s);
 }
 
 #btngarden, #btnmap
@@ -342,20 +366,6 @@ body
 	{
 		bottom: 15px !important;
 	}
-}
-
-.pipe
-{
-	width: 10px;
-	height: 50px;
-	position: absolute;
-	left: 50%;
-	bottom: -30px;
-	border-top: 5px solid #ABDDC4;
-	border-left: $borderWhite;
-	border-right: $borderWhite;
-	border-bottom: 5px solid #9FD0B8;
-	z-index: 99;
 }
 
 @media screen and(max-height: 760px)
@@ -655,7 +665,7 @@ input:focus, textarea:focus
 	width: 100%;
 	text-align: center;
 	position: absolute;
-	z-index: 1;
+	z-index: 99;
 	font-family: "medium";
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
@@ -726,3 +736,11 @@ input:focus, textarea:focus
 	width: 50%;
 	float: left;
 }
+
+#frame
+{
+	background-color: transparent;
+}
+
+
+
